@@ -1,4 +1,5 @@
-import { ArrowRight, CheckCircle2, Shield, Layers, Phone, Mail, MapPin, IndianRupee, Users, Stethoscope, CalendarDays, FlaskConical, FileStack, Pill, Activity, HeartPulse, Building2, Globe, Languages } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Shield, Phone, Mail, MapPin, Users, Stethoscope, CalendarDays, FlaskConical, FileStack, Pill, Activity, HeartPulse, Building2, Globe, MonitorSmartphone, LockKeyhole } from 'lucide-react'
+import SiteNavbar from './SiteNavbar'
 
 const Section = ({ id, title, subtitle, children }) => (
   <section id={id} className="max-w-6xl mx-auto px-4 py-12">
@@ -53,45 +54,40 @@ export default function Landing() {
 
   return (
     <div className="w-full">
+      <SiteNavbar />
+
       {/* Hero */}
-      <section id="home" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-white" />
-        <div className="relative max-w-6xl mx-auto px-4 pt-16 pb-12">
+      <section id="home" className="relative overflow-hidden bg-[#1A3B6E]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1A3B6E] via-[#1e4480] to-[#2a559b]" />
+        <div className="relative max-w-6xl mx-auto px-4 pt-24 pb-16">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900">
-                Nilkanth Medico — Smart Hospital Management Software
+              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+                Smart, Integrated Hospital Management Platform
               </h1>
-              <p className="mt-4 text-lg text-gray-700">
-                End-to-end HIMS & EMR built for Indian hospitals and clinics — simplify workflows, secure patient data, and increase revenue.
+              <p className="mt-4 text-lg text-white/90">
+                Fully-integrated HIMS, EMR, LIS, Billing & Virtual Care — AI-ready and built for scale.
               </p>
-              <p className="mt-3 text-sm text-gray-600">
-                Complete hospital management — appointments, OP/IP, labs, billing, inventory, and compliance — all in one secure platform.
+              <p className="mt-3 text-sm text-white/80">
+                Pre-integrated modules. Cloud-first, mobile-first. Secure, compliant, and easy to implement.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="#contact" className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-3 rounded-lg shadow hover:bg-blue-700 transition">
-                  Get a Demo <ArrowRight size={18} />
+                <a href="#contact" className="inline-flex items-center gap-2 bg-white text-[#1A3B6E] px-5 py-3 rounded-lg shadow hover:bg-white/90 transition">
+                  Get Demo <ArrowRight size={18} />
                 </a>
-                <a href="#pricing" className="inline-flex items-center gap-2 bg-white text-blue-700 px-5 py-3 rounded-lg border border-blue-200 hover:bg-blue-50 transition">
+                <a href="#pricing" className="inline-flex items-center gap-2 bg-transparent text-white px-5 py-3 rounded-lg border border-white/30 hover:bg-white/10 transition">
                   Request Pricing
                 </a>
               </div>
-              <div className="mt-6 p-3 rounded-lg bg-white/70 border text-sm text-gray-700">
-                <p>
-                  <span className="font-semibold">Gujarati:</span> નીલકંઠ મેડિકો — હૉસ્પિટલ મેનેજમેન્ટ સોફ્ટવેર · ભારતીય હોસ્પિટલ માટે સંપૂર્ણ HIMS અને EMR — રોજબરોજના કાર્યો સરળ બનાવો, દર્દી ડેટા સુરક્ષિત રાખો.
-                </p>
-              </div>
             </div>
             <div className="hidden md:block">
-              <div className="rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 p-1">
-                <div className="rounded-2xl bg-white p-6 min-h-[260px] flex flex-col justify-center">
-                  <p className="text-gray-700 text-sm">
-                    Built for Indian hospitals — OP/IP, AYUSH, government schemes like PMJAY; ABDM-ready. Modular, scalable, secure and compliant.
-                  </p>
-                  <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                    <li className="flex items-center gap-2"><CheckCircle2 className="text-emerald-600" size={18}/> Role-based access & audit trails</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 className="text-emerald-600" size={18}/> Encrypted storage & privacy best practices</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 className="text-emerald-600" size={18}/> Local support & implementation</li>
+              <div className="rounded-2xl bg-white/10 p-1">
+                <div className="rounded-2xl bg-white/5 p-6 min-h-[260px] flex flex-col justify-center text-white/90">
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-emerald-300" size={18}/> Pre‑integrated stack — no silos</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-emerald-300" size={18}/> Role-based access & audit logs</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-emerald-300" size={18}/> ABDM/PMJAY-ready integrations</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-emerald-300" size={18}/> Managed services & local support</li>
                   </ul>
                 </div>
               </div>
@@ -100,32 +96,46 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Multi-device showcase */}
+      <Section id="devices" title="Works across devices" subtitle="Mobile, tablet, desktop, kiosk — consistent, secure access everywhere">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {['Mobile','Tablet','Desktop','Kiosk'].map((d) => (
+            <div key={d} className="p-5 rounded-xl border bg-white flex items-center gap-3">
+              <div className="h-9 w-9 rounded-md bg-[#1A3B6E] text-white grid place-items-center flex-shrink-0">
+                <MonitorSmartphone size={18} />
+              </div>
+              <p className="text-sm text-gray-700">{d} ready experience</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* Why Choose */}
       <Section id="why" title="Why Choose Nilkanth Medico">
         <div className="grid md:grid-cols-3 gap-6">
           <div className="p-5 bg-white rounded-xl border">
-            <h3 className="font-semibold text-gray-800">Built for Indian hospitals</h3>
-            <p className="text-sm text-gray-600 mt-2">Designed with Indian workflows (OP/IP, AYUSH, government schemes like PMJAY/ABDM-ready).</p>
+            <h3 className="font-semibold text-gray-800">Pre‑integrated modules</h3>
+            <p className="text-sm text-gray-600 mt-2">Single platform, unified data lake. No silos.</p>
           </div>
           <div className="p-5 bg-white rounded-xl border">
-            <h3 className="font-semibold text-gray-800">Modular & Scalable</h3>
-            <p className="text-sm text-gray-600 mt-2">Start small, grow to multispecialty or chain hospitals without re-implementation.</p>
+            <h3 className="font-semibold text-gray-800">Cloud + On‑premise</h3>
+            <p className="text-sm text-gray-600 mt-2">Flexible deployment: your cloud or your servers.</p>
           </div>
           <div className="p-5 bg-white rounded-xl border">
-            <h3 className="font-semibold text-gray-800">Secure & Compliant</h3>
-            <p className="text-sm text-gray-600 mt-2">Role-based access, audit trails, encrypted storage, and data privacy best practices.</p>
+            <h3 className="font-semibold text-gray-800">Secure & compliant</h3>
+            <p className="text-sm text-gray-600 mt-2">Encryption, RBAC, audit logs, backups — enterprise-grade.</p>
           </div>
           <div className="p-5 bg-white rounded-xl border">
-            <h3 className="font-semibold text-gray-800">Local support & implementation</h3>
-            <p className="text-sm text-gray-600 mt-2">On-ground training, customization, and timely updates.</p>
+            <h3 className="font-semibold text-gray-800">AI / Analytics ready</h3>
+            <p className="text-sm text-gray-600 mt-2">Capture structured data ready for BI dashboards.</p>
           </div>
           <div className="p-5 bg-white rounded-xl border">
-            <h3 className="font-semibold text-gray-800">Affordable subscription models</h3>
-            <p className="text-sm text-gray-600 mt-2">Transparent pricing for small clinics to large hospitals.</p>
+            <h3 className="font-semibold text-gray-800">Scales with you</h3>
+            <p className="text-sm text-gray-600 mt-2">From single clinic to multispecialty chains.</p>
           </div>
           <div className="p-5 bg-white rounded-xl border">
-            <h3 className="font-semibold text-gray-800">Integration-first</h3>
-            <p className="text-sm text-gray-600 mt-2">ABDM, AYUSH, labs/devices, HMIS/ERP — future-ready APIs.</p>
+            <h3 className="font-semibold text-gray-800">Local implementation</h3>
+            <p className="text-sm text-gray-600 mt-2">On-ground training, customization, and support.</p>
           </div>
         </div>
       </Section>
@@ -135,7 +145,7 @@ export default function Landing() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((f, i) => (
             <div key={i} className="p-4 rounded-xl border bg-white flex items-start gap-3">
-              <div className="h-9 w-9 rounded-md bg-blue-600 text-white grid place-items-center flex-shrink-0">
+              <div className="h-9 w-9 rounded-md bg-[#1A3B6E] text-white grid place-items-center flex-shrink-0">
                 <f.icon size={18} />
               </div>
               <p className="text-sm text-gray-700">{f.label}</p>
@@ -151,6 +161,22 @@ export default function Landing() {
             <div key={i} className="p-5 rounded-xl border bg-white">
               <h3 className="font-semibold text-gray-800">{m.title}</h3>
               <p className="text-sm text-gray-600 mt-2">{m.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Security & Compliance */}
+      <Section id="security" title="Security & Data Control" subtitle="Encryption, RBAC, audit trails, managed services, ABDM/PMJAY readiness">
+        <div className="grid md:grid-cols-3 gap-4">
+          {[
+            { title: 'Encryption at rest & in transit', icon: LockKeyhole },
+            { title: 'Role-based access & audit logs', icon: Shield },
+            { title: 'Backups & Disaster Recovery', icon: Shield },
+          ].map((card, i) => (
+            <div key={i} className="p-5 rounded-xl border bg-white flex items-start gap-3">
+              <div className="h-9 w-9 rounded-md bg-[#1A3B6E] text-white grid place-items-center flex-shrink-0"><card.icon size={18} /></div>
+              <p className="text-sm text-gray-700">{card.title}</p>
             </div>
           ))}
         </div>
@@ -178,22 +204,18 @@ export default function Landing() {
             <h3 className="font-semibold text-gray-800">Lab & Device integrations</h3>
             <p className="text-sm text-gray-600 mt-2">Connect analyzers via standard protocols; RIS/PACS connectivity.</p>
           </div>
-          <div className="p-5 rounded-xl border bg-white">
-            <h3 className="font-semibold text-gray-800">Data security</h3>
-            <p className="text-sm text-gray-600 mt-2">AES encryption, HTTPS, role-based access control, and audit logs.</p>
-          </div>
         </div>
       </Section>
 
       {/* Pricing */}
       <Section id="pricing" title="Pricing" subtitle="Sample subscription tiers — adjust as required">
         <div className="grid md:grid-cols-3 gap-6">
-          {[ 
-            { name: 'Starter — For small clinics', price: 'Monthly / Annual', points: ['Patient records, OP, basic billing, appointments', '1–2 users, PWA access'] },
-            { name: 'Professional — For medium hospitals (recommended)', price: 'Contact for quote', highlight: true, points: ['All Starter + IP, LIS basic, pharmacy, inventory, reporting', 'Up to 20 users, onboarding & training'] },
-            { name: 'Enterprise — For multispecialty hospitals & chains', price: 'Tailored plan', points: ['All Professional + advanced LIS/RIS, integrations, customized workflows, dedicated support, SLA', 'Unlimited users, data migration, onsite implementation'] },
+          {[
+            { name: 'Clinic', price: 'Monthly / Annual', points: ['Patient records, OP, basic billing, appointments', '1–2 users, PWA access'] },
+            { name: 'Hospital (recommended)', price: 'Contact for quote', highlight: true, points: ['OP + IP, LIS basic, pharmacy, inventory, reporting', 'Up to 20 users, onboarding & training'] },
+            { name: 'Enterprise', price: 'Tailored plan', points: ['Advanced LIS/RIS, integrations, customized workflows, dedicated support, SLA', 'Unlimited users, data migration, onsite implementation'] },
           ].map((p, i) => (
-            <div key={i} className={`p-6 rounded-2xl border bg-white ${p.highlight ? 'ring-2 ring-blue-600' : ''}`}>
+            <div key={i} className={`p-6 rounded-2xl border bg-white ${p.highlight ? 'ring-2 ring-[#1A3B6E]' : ''}`}>
               <h3 className="font-semibold text-gray-900">{p.name}</h3>
               <p className="text-sm text-gray-600 mt-1">{p.price}</p>
               <ul className="mt-4 space-y-2 text-sm text-gray-700">
@@ -219,7 +241,7 @@ export default function Landing() {
       </Section>
 
       {/* Testimonials */}
-      <Section id="testimonials" title="Testimonials">
+      <Section id="testimonials" title="Trust & Testimonials" subtitle="Awards, partners, and client outcomes">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="p-6 rounded-xl border bg-white">
             <p className="text-gray-700">“Nilkanth Medico helped reduce patient waiting time by 40% and made our billing accurate.”</p>
@@ -230,7 +252,7 @@ export default function Landing() {
             <p className="mt-3 text-sm text-gray-500">— [Administrator], [Hospital]</p>
           </div>
         </div>
-        <p className="text-sm text-gray-500 mt-4">(Add real client testimonials here.)</p>
+        <p className="text-sm text-gray-500 mt-4">(Add client logos and awards here.)</p>
       </Section>
 
       {/* FAQs */}
@@ -261,15 +283,15 @@ export default function Landing() {
               <input className="w-full border rounded-lg px-3 py-2" placeholder="Hospital / Clinic" />
             </div>
             <textarea className="w-full border rounded-lg px-3 py-2" rows="4" placeholder="Tell us your requirements (modules, bed count, timeline)"></textarea>
-            <button type="button" className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-3 rounded-lg hover:bg-blue-700">
+            <button type="button" className="inline-flex items-center gap-2 bg-[#1A3B6E] text-white px-5 py-3 rounded-lg hover:bg-[#17406a]">
               Submit Request <ArrowRight size={18} />
             </button>
             <p className="text-xs text-gray-500">This is a demo form. Replace with your preferred form handler.</p>
           </form>
           <div className="bg-white rounded-xl border p-6 space-y-4">
-            <div className="flex items-center gap-3 text-gray-700"><Phone size={18} className="text-blue-600"/> [Phone Number]</div>
-            <div className="flex items-center gap-3 text-gray-700"><Mail size={18} className="text-blue-600"/> [email@example.com]</div>
-            <div className="flex items-center gap-3 text-gray-700"><MapPin size={18} className="text-blue-600"/> Nilkanth Medico Pvt. Ltd. · Address: [Your office address]</div>
+            <div className="flex items-center gap-3 text-gray-700"><Phone size={18} className="text-[#1A3B6E]"/> [Phone Number]</div>
+            <div className="flex items-center gap-3 text-gray-700"><Mail size={18} className="text-[#1A3B6E]"/> [email@example.com]</div>
+            <div className="flex items-center gap-3 text-gray-700"><MapPin size={18} className="text-[#1A3B6E]"/> Nilkanth Medico Pvt. Ltd. · Address: [Your office address]</div>
             <div className="pt-2 text-sm text-gray-600">Replace placeholders with actual contact details.</div>
           </div>
         </div>
@@ -280,10 +302,10 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto px-4 py-8 text-sm text-gray-600 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} Nilkanth Medico Pvt. Ltd.</p>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-blue-600">Privacy Policy</a>
-            <a href="#" className="hover:text-blue-600">Terms of Service</a>
-            <a href="#" className="hover:text-blue-600">Careers</a>
-            <a href="#contact" className="hover:text-blue-600">Support</a>
+            <a href="#" className="hover:text-[#1A3B6E]">Privacy Policy</a>
+            <a href="#" className="hover:text-[#1A3B6E]">Terms of Service</a>
+            <a href="#" className="hover:text-[#1A3B6E]">Careers</a>
+            <a href="#contact" className="hover:text-[#1A3B6E]">Support</a>
           </div>
         </div>
       </footer>
